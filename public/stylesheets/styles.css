@@ -1,0 +1,129 @@
+h3 {
+  padding-bottom: 9px;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+a {
+  color: #FF6534;
+}
+
+a:hover {
+  color: #FF794F;
+}
+
+li {
+  color: black;
+}
+
+header {
+  background: url("/images/dessertbg3.png");
+  padding: 50px 15px 25px 15px;
+}
+
+header p {
+  font-size: 1.25rem;
+}
+
+main {
+  display: none;
+}
+
+nav {
+  padding: 20px;
+  margin-bottom: 60px;
+}
+
+nav, #no_contacts {
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+}
+
+#filterBtn {
+  background-color: rgb(255, 135, 98);
+  border-color: rgb(255, 135, 98);
+  color: white;
+  margin-right: 8px;
+}
+
+#filterBtn:hover {
+  background-color: rgb(255, 175, 151);
+  border-color: rgb(255, 175, 151);
+}
+
+[aria-labelledby=filterBtn] .dropdown_pair {
+  margin: 0 8px 0 15px;
+}
+
+.btn-outline-light {
+  border-color: #FF6534;
+  color: #FF6534;
+}
+
+.btn-outline-light:hover {
+  color: white;
+  border-color: #FF794F;
+  background-color: #FF794F;
+}
+
+.btn-light {
+  border-color: lightgray;
+}
+
+.btn-light:hover {
+  color: white;
+  border-color: rgb(255, 131, 93);
+  background-color: rgb(255, 131, 93);
+}
+
+.bg-light {
+  /* background-color: rgb(255, 236, 231) !important; */
+  background-image: radial-gradient( circle 792.4px at 10% 20%,  rgba(255,236,231,1) 0%, rgba(255,153,122,0.98) 91.1% );
+
+  /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,236,231,1) 0%, rgba(255,143,108,1) 90.1% ); */
+
+  /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,236,231,1) 0%, rgba(255,168,141,1) 90% ); */
+}
+
+#no_contacts, footer {
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+  padding: 19px;
+}
+
+section.form {
+  margin-top: 40px;
+  display: none;
+}
+
+.col-form-label {
+  font-size: .875rem;
+}
+
+#create_tag {
+  width: 60%;
+  margin-right: 3%;
+  display: inline-block;
+}
+
+#checkbox_container {
+  margin-bottom: 20px;
+}
+
+input[type=checkbox]:checked + label {
+  color: #FF794F;
+} 
+
+.smaller_paragraph_margin {
+  margin-bottom: 5px;
+}
+
+footer {
+  margin-top: 60px;
+  border-top: 1px solid #ebebeb;
+}
+
+footer p {
+  font-size: .875rem;
+}

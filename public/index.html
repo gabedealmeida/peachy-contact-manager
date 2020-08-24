@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <script src="javascripts/app.js"></script>
+</head>
+<body>
+  <header id="main-header">
+    <div class="container text-white text-center">
+      <h1 class="">🍑 Contact Manager</h1>
+      <p class="font-weight-light">By: Gabriel De Almeida</p>
+    </div>
+  </header>
+  <main class="container-fluid">
+    <nav class="navbar-light d-md-flex mx-auto">
+      <div class="col-md-6 text-center mx-auto">
+        <button class="btn btn-md btn-outline-light add_contact" type="button">Add Contact
+        </button>
+      </div>
+      <div class="col-md-6 d-flex mx-auto mt-2 mt-md-0">
+        <div class="d-flex mx-auto">
+          <div class="dropdown">
+            <button id="filterBtn" class="btn btn-md btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter by Tags</button>
+            <div class="dropdown-menu" aria-labelledby="filterBtn">
+              <form></form>
+            </div>
+          </div>
+          <form>
+            <input id="search_bar" class="form-control mx-auto" type="search" placeholder="Search by name" aria-label="Search">
+          </form>
+        </div>
+      </div>
+    </nav>
+  </main>
+  <section class="container-fluid form">
+    <div class="ml-md-3" id="checkbox_container">
+      <div class="form-check form-check-inline offset-md-4 col-md-6" id="tag_area">
+        <div id="inner_tag_area">
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="text-center">
+    <p class="smaller_paragraph_margin">Made with 🧡</p>
+    <p><a href="mailto:hello@gabrieldealmeida.com">Hello@GabrielDeAlmeida.com</a></p>
+  </footer>
+  <script id="filter_tags_btn" type="text/x-handlebars">
+    <div class="form-group">
+      {{#each tags}}
+      <div class="dropdown_pair form-check">
+        <input id="dropdown_{{id}}" class="form-check-input" type="checkbox" value="{{tagName}}" name="tags">
+        <label for="dropdown_{{id}}" class="form-check-label">{{tagName}}</label>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+  <script id="no_contacts_section" type="text/x-handlebars">
+    <div id="no_contacts">
+      <div class="text-center">
+        <h4>There are no contacts.</h4>
+        <button class="btn btn-md btn-outline-light add_contact" type="button">Add Contact
+        </button>
+      </div>
+    </div>
+  </script>
+  <script id="all_tags" type="text/x-handlebars">
+    {{#each tags}}
+    {{> a_tag}}
+    {{/each}}
+  </script>
+  <script id="a_tag" data-type="partial" type="text/x-handlebars">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" value="{{tagName}}" name="tags" id="{{id}}">
+      <label class="form-check-label" for="{{id}}">
+        {{tagName}}
+      </label>
+    </div>
+  </script>
+  <script id="contacts_display" type="text/x-handlebars">
+    <div id="all_contact_cards" class="row row-cols-1 row-cols-md-3">
+      {{#each contacts}}
+      {{> contact_card}}
+      {{/each}}
+    </div>
+  </script>
+  <script id="contact_card" data-type="partial" type="text/x-handlebars">
+    <div class="col mb-4" data-contact-id="contact_{{id}}">
+      <div class="card h-100 text-dark bg-light">
+        <div class="card-body">
+          <h5 class="card-title" data-type="full_name">{{profileEmoji}} {{fullName}}</h5>
+        </div>
+        <ul class="list-group list-group-flush text-black">
+          <li class="list-group-item" data-type="phone_number">📱 <b>Phone Number:</b> {{phoneNumber}}</li>
+          <li class="list-group-item" data-type="email">📥 <b>Email</b>: {{email}}</li>
+          <li class="list-group-item" data-type="tags">🏷️ <b>Tags:</b> {{tags}}</li>
+        </ul>
+        <div class="card-body">
+          <button class="edit btn btn-sm btn-light">✏ Edit</button>
+          <button class="delete btn btn-sm btn-light">🗑️ Delete</button>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script id="form" type="text/x-handlebars">
+    <h3 class="text-center">{{title}}</h3>
+    <form method="post" action={{action}} data-form="{{formType}}">
+      <fieldset>
+        <div class="form-group row">
+          <label class="col-md-4 col-form-label font-weight-bold text-md-right" for="full_name">Full name:</label>
+          <div class="col-md-6">
+            <input class="form-control" type="text" id="full_name" name="full_name" value="{{nameValue}}" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-4 col-form-label font-weight-bold text-md-right" for="email">Email address:</label>
+          <div class="col-md-6">
+            <input class="form-control" type="email" id="email" name="email" value="{{emailValue}}" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-4 col-form-label font-weight-bold text-md-right" for="phone_number">Telephone number:</label>
+          <div class="col-md-6">
+            <input class="form-control" type="tel" id="phone_number" name="phone_number" value="{{telephoneValue}}" required>
+          </div>
+        </div>
+        <div class="form-group row" id="create_tag_area">
+          <label class="col-md-4 col-form-label font-weight-bold text-md-right" for="create_tag">Create a tag:</label>
+          <div class="col-md-6">
+            <input class="form-control" type="text" id="create_tag" placeholder="ex: friend, co-worker">
+            <button id="create_tags_btn" class="create_tag btn btn-outline-light btn-md">Create</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-lg btn-outline-light btn-block">Submit</button>
+          </div>
+          <div class="col-md-3">
+            <button type="button" id="cancel_btn" class="btn btn-lg btn-outline-light btn-block">Cancel</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

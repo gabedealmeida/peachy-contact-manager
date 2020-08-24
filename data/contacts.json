@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "full_name": "Rose M",
+    "email": "rm@example.com",
+    "phone_number": "12345678901",
+    "tags": "friend,programming,teacher,work"
+  },
+  {
+    "id": 2,
+    "full_name": "Will Powers",
+    "email": "Will1988@example.com",
+    "phone_number": "49876543210",
+    "tags": "friend,work"
+  },
+  {
+    "full_name": "Gabriel De Almeida",
+    "phone_number": "8473889949",
+    "email": "gabe@outlook.com",
+    "tags": "business,friend,programming,teacher,work",
+    "id": 3
+  },
+  {
+    "full_name": "Brooke",
+    "phone_number": "7693850820582",
+    "email": "boo@gmail.com",
+    "tags": "cyclist,teacher",
+    "id": 4
+  },
+  {
+    "full_name": "Melinda Jones",
+    "phone_number": "342348623",
+    "email": "mjones43@hotmail.com",
+    "tags": "business,cyclist",
+    "id": 5
+  },
+  {
+    "full_name": "HAL 9000",
+    "phone_number": "123469",
+    "email": "ImAfraidICantDoThat@Dave.com",
+    "tags": "sci-fi,Arthur C. Clarke",
+    "id": 6
+  },
+  {
+    "full_name": "Ben",
+    "phone_number": "74589275987235978",
+    "email": "ben@gmail.com",
+    "tags": "friend,golf,party,program,programming,vim",
+    "id": 7
+  }
+]
